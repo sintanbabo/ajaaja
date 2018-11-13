@@ -12,7 +12,6 @@ public class t20181110_panorama {
 	public static boolean[] usedPicture; // 이미 사용된 사진인지 여부
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		
 		System.setIn(new FileInputStream("C:\\Users\\User\\res\\paranomaPicture.txt"));
     	Scanner sc = new Scanner(System.in);
