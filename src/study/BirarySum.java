@@ -16,7 +16,6 @@ public class BirarySum {
 		String sFirst  = First;
 		String sSecond = Second;
 		
-		
 		int iLength;
 		
 		if(First.length() > Second.length()){
@@ -34,7 +33,7 @@ public class BirarySum {
 		char[] cSecond = sSecond.toCharArray();
 		
 		int  a = 0;
-		char b = '0'; //¿Ã¸²À» À§ÇÑ ÀÚ¸®¼ö
+		char b = '0'; //ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½
 		
 		
 		for(int i=sFirst.length()-1; i >= 0; i--){
