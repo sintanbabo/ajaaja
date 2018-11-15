@@ -4,23 +4,26 @@ import java.io.*;
 import java.util.*;
 
 public class std20181114_jo1082 {
+
 	static int r;
 	static int c;
 	static char map[][];
 	static boolean[][] visit;
+	static boolean[][] visitfire;
 	static int dx[] = {-1,0,1,0};
 	static int dy[] = {0,-1,0,1};
 	static int cnt = 0;
 	
 	public static void main(String[] args) throws Exception {
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(new FileInputStream("c://sw//final1110_ahja//input_jo_1082.txt"));
 		
 		r = sc.nextInt();
 		c = sc.nextInt();
 		
 		map = new char [r][c];
 		visit = new boolean [r][c];
+		visitfire = new boolean [r][c]; 
 		
 		sc.nextLine();
 		for(int i=0; i<r; i++){
@@ -99,8 +102,21 @@ public class std20181114_jo1082 {
 		boolean flag = true;
 		
 		
+		
+		
+		
 		while(!que.isEmpty()){
-			System.out.println("cnt>>>>>>>>>>>>>>>>>>>>>"+cnt);
+			int Scnt = 0;
+			for(int i=0; i<r; i++){
+				for(int j=0; j<c; j++){
+					if(map[i][j]=='S'){
+						Scnt++;
+					}
+				}
+			}
+			if(Scnt == 0){
+				break;
+			}
 			
 			if(cnt==7){
 				System.out.println("jaeyeon");
@@ -109,7 +125,6 @@ public class std20181114_jo1082 {
 			bfs1082 b = que.poll();	
 			// ���� bfs
 			if(b.z == "j"){
-				
 				
 				boolean countFlag = true;
 				
@@ -120,8 +135,9 @@ public class std20181114_jo1082 {
 					String z1 = b.z;
 					
 					
+					
 					if(x1>=0 && x1<r && y1>=0 && y1<c){
-						if((map[x1][y1] == '.' || map[x1][y1] =='D') && visit[x1][y1] == false){
+						if((map[x1][y1] == '.' || map[x1][y1] =='D') && visit[x1][y1] == false && map[x][y] !='*'){
 							
 							
 							if(countFlag){
@@ -167,6 +183,7 @@ public class std20181114_jo1082 {
 						if( map[x1][y1] != 'D' && map[x1][y1] != 'X'){
 							map[x1][y1] = '*';
 							que.add(new bfs1082(x1, y1, z1));
+							visitfire[x1][y1] = true;
 						}
 						
 					}
